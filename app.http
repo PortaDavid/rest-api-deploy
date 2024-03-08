@@ -1,0 +1,36 @@
+###
+GET http://localhost:3000/movies
+
+### 
+GET http://localhost:3000/movies/c8a7d63f-3b04-44d3-9d95-8782fd7dcfaf
+
+####
+GET http://localhost:3000/movies?genre=ACTION
+
+###
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{ 
+  "sql":"SELECT * FROM users",
+  "title": "BrainDead, Tú madre se ha comido a tu perro",
+  "year": 1995,
+  "director": "Mono Juan",
+  "duration": 142,
+  "poster": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQjkxk1HXZqweCR7dcKnjQEI5ZjKxiyNMUqZxFLE99AQlGM5f9r",
+  "genre": [
+    "Crime",
+    "Drama"
+  ],
+  "rate":0
+}
+### Actualizar una película
+# No podemos cambiar el id, porque no la validamos, zod la ignora totalmente
+PATCH http://localhost:3000/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "id": "123", 
+  "title": "Hola",
+  "year": 1990
+}
